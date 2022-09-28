@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  /* position: relative; */
+}
+#olx_blue_logo {
+  width: 45px;
+}
+.nav-item {
+  padding-left: 30px;
+}
+
+#olx_logo_black {
+  width: 70px;
+}
+
+#search_area_li {
+  border: 1px solid black;
+  width: 280px;
+  height: 50px;
+  padding: 10px;
+  /* padding-top: 5px; */
+}
+#search_area_li input {
+  border: 0px;
+  width: 210px;
+  padding-left: 10px;
+}
+#search_area_li2 {
+  border: 1px solid black;
+  margin-left: 25px;
+  padding-left: 10px;
+}
+#search_area_li2 input {
+  width: 560px;
+  font-size: 20px;
+  border: none;
+
+  /* padding-top: 10px; */
+}
+#search_area_li2 i {
+  color: white;
+  font-size: 25px;
+  background-color: black;
+  padding: 12px;
+  height: 50px;
+  width: 50px;
+}
+
+.login_link {
+  color: black !important;
+  text-decoration: underline !important;
+  font-size: 20px;
+}
+.add_post_btn {
+  /* padding: 0; */
+  /* margin: 0; */
+  margin-top: 5px;
+  font-size: 20px;
+  border-top: 6px solid rgb(28, 211, 202);
+  border-bottom: 6px solid #3a77ff;
+  border-left: 6px solid rgb(243, 206, 20);
+  border-right: 6px solid red;
+  border-radius: 30px;
+  width: 120px;
+  height: 45px;
+  background-color: white;
+}
+
+/* categoris links */
+.links_container {
+  margin-top: 20px;
+}
+.links_container a {
+  color: #002f34;
+  margin-left: 12px;
+  text-decoration: none;
+}
+.links_container #all_categories {
+  color: black;
+  margin-left: 0;
+  font-size: 18px;
+}
+.all_categories_down {
+  font-size: 20px;
+  margin-left: 4px;
+  margin-right: 10px;
+}
+
+/* add conatiner */
+#ad_container {
+  margin-top: 40px;
+}
+
+/* ad form */
+#form_container {
+  /* display: none; */
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  /* right: 100%; */
+}
