@@ -226,6 +226,87 @@
   padding-left: 10px;
 }
 
+/*  for login  */
+#login_olx_logo {
+  width: 80px;
+}
+.cross_login {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+#login_form_container {
+  /* display: flex;
+  justify-content: center !important; */
+  position: absolute;
+  top: 150px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  z-index: 10;
+  display: none;
+
+  /* border: 2px solid blue; */
+}
+#signUp_form_container {
+  /* display: flex;
+  justify-content: center !important; */
+  position: absolute;
+  top: 150px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  z-index: 10;
+  display: none;
+
+  /* border: 2px solid blue; */
+}
+.login_form_sub-container {
+  border: 2px solid black;
+  position: relative;
+  width: 400px;
+  height: 500px;
+  margin: auto;
+  background-color: white;
+}
+.signUp_form_sub-container {
+  border: 2px solid black;
+  position: relative;
+  width: 400px;
+  height: 500px;
+  margin: auto;
+  background-color: white;
+}
+
+.login_inputs {
+  height: 40px;
+  padding-left: 10px;
+}
+#login_btn {
+  width: 70px;
+  background-color: white;
+}
+#show_sign_up {
+  text-decoration: underline;
+  color: blue;
+  margin-top: 10px;
+}
+#show_sign_up:hover {
+  color: purple;
+  cursor: pointer;
+}
+
+#sign_up_btn {
+  width: 90px;
+}
 /* ad form */
 /* #form_container { */
 /* display: none; */

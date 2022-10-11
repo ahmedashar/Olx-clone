@@ -1,4 +1,5 @@
-function addPostInfo(){
+import { firebaseSignIn, firebaseSignUp } from "./firebase.js";
+window.addPostInfo = function(){
     var addPostBtn = document.getElementById('add_post_link_btn');
     addPostBtn.href = './ad-post/index.html'
  
@@ -6,67 +7,137 @@ function addPostInfo(){
 
 
 // onclick(ad-post/backArrow)
-function back(){
+window.back = function(){
     var backArrow = document.getElementById('left_arrow_a');
     backArrow.href = '../index.html'
 }
 
+// show login
+window.showLogin = function(){
+    document.getElementById('login_form_container').style.display = 'inline';
+   
+}
+
+// show SignUp
+window.showSignUp = function(){
+    document.getElementById('login_form_container').style.display = 'none'
+    document.getElementById('signUp_form_container').style.display = 'inline'
+}
 
 
+// get sign Up
+window.signUpUser = async function(){
+    let userName = document.getElementById('signUp_name').value;
+    let userEmail = document.getElementById('signUp_email').value;
+    let userPassword = document.getElementById('signUp_password').value;
 
-var getSRC;
-function previewFile() {
-    var adImageInput = document.querySelector("input[type=file]").files[0];
-    var reader = new FileReader();
-    
-    reader.onloadend = function () {
-        getSRC = reader.result;
-    };
-    
-    if (adImageInput) {
-        reader.readAsDataURL(adImageInput);
-    } else {
-        getSRC = "";
+    try{
+        await firebaseSignUp({userName,userEmail,userPassword})
+        alert('signUp successfull');
+    }catch(e){
+        alert(e.message)
     }
+
 }
-function Ad(adImg,adTitle,adPrice,adLocation){
-    this.adImg = adImg;
-    this.adTitle = adTitle;
-    this.adPrice = adPrice;
-    this.adLocation = adLocation;
+
+// get login user
+window.loginUser = async function(){
+    let userEmail = document.getElementById('login_email').value;
+    let userPassword = document.getElementById('login_password').value;
+try{
+   await firebaseSignIn(userEmail,userPassword)
+   alert('Login Successfull')
 }
-var getRegisteredAd;
-// onreload="" event on body 
-function registeredAdInLocalStorage(){
-    //get push-user data from local storage
-    if (localStorage.getItem('registeredAd')){
+catch(e){
+    alert(e.message)
+}
+    // console.log(userEmail,userPassword)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var getSRC;
+// function previewFile() {
+//     var adImageInput = document.querySelector("input[type=file]").files[0];
+//     var reader = new FileReader();
+    
+//     reader.onloadend = function () {
+//         getSRC = reader.result;
+//     };
+    
+//     if (adImageInput) {
+//         reader.readAsDataURL(adImageInput);
+//     } else {
+//         getSRC = "";
+//     }
+// }
+// function Ad(adImg,adTitle,adPrice,adLocation){
+//     this.adImg = adImg;
+//     this.adTitle = adTitle;
+//     this.adPrice = adPrice;
+//     this.adLocation = adLocation;
+// }
+// var getRegisteredAd;
+// // onreload="" event on body 
+// function registeredAdInLocalStorage(){
+//     //get push-user data from local storage
+//     if (localStorage.getItem('registeredAd')){
         
-        getRegisteredAd = JSON.parse(localStorage.getItem('registeredAd'));
-    }
-    //if registeredUser not defined then create it
-    else{
+//         getRegisteredAd = JSON.parse(localStorage.getItem('registeredAd'));
+//     }
+//     //if registeredUser not defined then create it
+//     else{
         
-        localStorage.setItem('registeredAd', JSON.stringify([]));
-    }
-}
+//         localStorage.setItem('registeredAd', JSON.stringify([]));
+//     }
+// }
 
-function adPosted(){
+// function adPosted(){
 
-    // var adImageInput = document.getElementById('ad_image');
-    var adTitleInput = document.getElementById('title_input');
-    var adPriceInput = document.getElementById('price_input');
-    var adLocationInput = document.getElementById('location_input');
+//     // var adImageInput = document.getElementById('ad_image');
+//     var adTitleInput = document.getElementById('title_input');
+//     var adPriceInput = document.getElementById('price_input');
+//     var adLocationInput = document.getElementById('location_input');
 
-    console.log(getRegisteredAd)
+//     console.log(getRegisteredAd)
 
 
-    // 
+//     // 
 
-    // 
-    getRegisteredAd.push(new Ad(getSRC,adTitleInput.value,adPriceInput.value,adLocationInput.value));
+//     // 
+//     getRegisteredAd.push(new Ad(getSRC,adTitleInput.value,adPriceInput.value,adLocationInput.value));
 
-    localStorage.setItem('registeredAd', JSON.stringify(getRegisteredAd));
+//     localStorage.setItem('registeredAd', JSON.stringify(getRegisteredAd));
 
     
-}
+// }
 
