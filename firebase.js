@@ -22,14 +22,11 @@
 
 
 
-// async function firebaseSignUp(){
-
-//    await createUserWithEmailAndPassword(auth, email, password)
-
-// }
+ function firebaseSignUp(userInfo){
+  const {userEmail,userPassword} = userInfo;
+  return createUserWithEmailAndPassword(auth, userEmail, userPassword);
 
 
-function firebaseSignUp(){
     
 }
 

@@ -32,7 +32,7 @@ window.signUpUser = async function(){
     let userPassword = document.getElementById('signUp_password').value;
 
     try{
-        await firebaseSignUp({userName,userEmail,userPassword})
+        await firebaseSignUp({userEmail, userPassword, userName})
         alert('signUp successfull');
     }catch(e){
         alert(e.message)
