@@ -1,4 +1,8 @@
-import { firebaseSignIn, firebaseSignUp } from "./firebase.js";
+import { firebaseSignIn, firebaseSignUp, adPostToDb, uploadImage, getAdsFromDb } from "./firebase.js";
+
+
+
+
 window.addPostInfo = function(){
     var addPostBtn = document.getElementById('add_post_link_btn');
     addPostBtn.href = './ad-post/index.html'
@@ -34,6 +38,8 @@ window.signUpUser = async function(){
     try{
         await firebaseSignUp({userEmail, userPassword, userName})
         alert('signUp successfull');
+        document.getElementById('login_form_container').style.display = 'inline'
+        document.getElementById('signUp_form_container').style.display = 'none'
     }catch(e){
         alert(e.message)
     }
@@ -57,8 +63,43 @@ catch(e){
 
 
 
+// for ad-post
 
+ window.adPosted = async function(){
+    let adTitle = document.getElementById('title_input').value;
+    let adDes = document.getElementById('des_input').value;
+    let adPrice = document.getElementById('price_input').value;
+    let adLocation = document.getElementById('location_input').value;
+    let adImg = document.getElementById('ad_image').files[0];
+    // alert(adTitle)
+    try{
+        const imgUrl = await uploadImage(adImg);
+        await adPostToDb(adTitle,adDes,adPrice,adLocation,imgUrl)
+        alert('successfull')
+        location.href = '../index.html'
+    }catch(e){
+        alert(e.message)
+    }
+}
 
+window.getAds = async function(){
+    const ads = await getAdsFromDb();
+    const adElem = document.getElementById('ad_container');
+
+    for(let item of ads){
+        adElem.innerHTML += `
+        <div class="ad_cards">
+            <img class="ad_img" src=${item.imgUrl} alt="">
+            <div class="ad_content">
+                <p class="ad_title">${item.adTitle}</p>
+                <h3 class="ad_price">${item.adPrice}</h3>
+                <p class="ad_location">${item.adLocation}</p>
+            </div>
+        </div>
+        `
+    }
+
+} 
 
 
 
