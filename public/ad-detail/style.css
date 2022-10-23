@@ -1,0 +1,110 @@
+.sub_cont_left {
+  /* border: 2px solid green; */
+}
+.sub_cont_right {
+  /* border: 2px solid red; */
+}
+/* nav */
+.nav {
+  border: 1px solid rgb(194, 194, 194);
+  background-color: #f7f8f8;
+}
+#left_arrow_a {
+  text-decoration: none;
+  color: black;
+}
+.fa-arrow-left {
+  font-size: 20px;
+  padding: 20px;
+}
+.black_olx_logo {
+  width: 50px;
+  height: 40px;
+  margin-top: 10px;
+}
+
+/* sub_cont_left (parent) */
+#det_ad_img {
+  width: 100%;
+  height: 500px;
+  border: 1px solid gray;
+}
+
+/* ad Des */
+.ad_des_cont {
+  border: 1px solid gray;
+}
+
+/* sub_cont_right (parent)*/
+.price_container {
+  border: 1px solid gray;
+}
+.seller_container {
+  border: 1px solid gray;
+}
+.avatar_icon {
+  width: 70px;
+}
+.chat_btn {
+  width: 100%;
+  height: 45px;
+
+  background-color: #092f35;
+  color: white;
+  padding: 10px;
+  font-weight: bolder;
+  border: none;
+}
+
+/* footer */
+
+.footer_main {
+  border-top: 1px solid rgb(153, 153, 153);
+  background-color: #ebeeef;
+}
+
+.sub_sec_div .sub_sec_para {
+  font-size: 14px;
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+.sub_sec_div a {
+  text-decoration: none;
+  color: rgb(120, 119, 119);
+  font-size: 12px;
+}
+.follow_us_para {
+  font-size: 14px;
+  font-weight: bolder;
+  margin-bottom: 5px;
+  margin-bottom: 0px;
+}
+.icons_followUs img {
+  width: 20px;
+  margin-right: 6px;
+}
+.img_followUs img {
+  width: 80px;
+  margin-top: 30px;
+  margin-right: 4px;
+}
+
+/*  */
+.bottom_copyright {
+  background-color: #002f34;
+  height: 40px;
+}
+
+.bottom_copyright p {
+  width: 400px;
+  margin-left: auto;
+  color: white;
+  font-size: 12px;
+  margin-bottom: 0px;
+  padding-top: 12px;
+  font-weight: bolder;
+}
+.bottom_copyright p span {
+  font-weight: lighter;
+  padding-left: 10px;
+}

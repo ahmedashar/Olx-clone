@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css
+   ">
+    <!-- local -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container-fluid nav">
+        <a href="#" id="left_arrow_a" onclick="back()">
+            <i id="left_arrow" class="fa-solid fa-arrow-left"></i>
+        </a>
+        <img class="black_olx_logo" src="../images/olx-logo-black.png" alt="">
+    </div>
+    <h4 class="text-center mt-4">POST YOUR AD</h4>
+
+    <div class="container form_container">
+        <h4 class="mt-3">INCLUDE SOME DETAILS</h4>
+        <form action="#">
+            <!-- 1. ad title -->
+            <div class="title mt-3">
+                <span class="input_Upspan">Ad title</span> <br>
+                <input id="title_input" class="input_width" type="text"> <br>
+                <span class="input_Btmspan">Mention the key features of your item (e.g. brand, model, age, type)</span>
+            </div>
+            <!--2 ad description -->
+            <div class="description mt-4">
+                <span class="input_Upspan">Description</span> <br>
+                <input id="des_input" type="text" class="input_width"> <br>
+                <span class="input_Btmspan">Include condition, features and reason for selling</span>
+            </div>
+
+            <hr>
+
+            <h4>SET A PRICE</h4>
+            <!--3 ad price -->
+            <div class="price">
+                <span class="input_Upspan">Price</span> <br>
+                <input id="price_input" type="text" class="input_width" placeholder="RS |"> <br>
+            </div>
+
+            <hr>
+            <!--4 ad img -->
+            <h4>UPLOAD PHOTO OF ITEM</h4>
+
+            <div class="upload_pic">
+                <input type="file" name="" id="ad_image">
+            </div>
+
+            <hr>
+            <!--5 ad location -->
+            <h4>YOUR AD'S LOCATION</h4>
+            <div class="location mb-4">
+                <span class="input_Upspan">Location</span> <br>
+                <input id="location_input" type="text" class="input_width">
+            </div>
+            <hr>
+
+            <div class="submit_div mt-3 mb-3">
+                <!-- <input type="submit" class="submit_btn" value="Post now" onclick="adPosted()"> -->
+                <button class="submit_btn" onclick="adPosted()">Post Now</button>
+            </div>
+        </form>
+    </div>
+
+
+
+    <script src="../app.js" type="module"></script>
+</body>
+
+</html>
