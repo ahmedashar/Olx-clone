@@ -1,0 +1,145 @@
+/*  */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-container {
+  width: 100%;
+  /* background-color: gray; */
+  height: 100vh;
+
+  /* align-items: center; */
+}
+
+/* NavBar Start */
+.nav {
+  border: 1px solid rgb(194, 194, 194);
+  background-color: #f7f8f8;
+}
+#left_arrow_a {
+  text-decoration: none;
+  color: black;
+}
+.fa-arrow-left {
+  font-size: 20px;
+  padding: 20px;
+}
+.black_olx_logo {
+  width: 50px;
+  height: 40px;
+  margin-top: 10px;
+}
+/* NavBar End */
+
+/* msg_container start */
+
+.msg_container {
+  /* border: 2px solid blue; */
+  width: 100vw;
+  min-height: 81vh !important;
+  /* background-color: #ebeeef !important; */
+  /* background-color: #ebeeef; */
+}
+
+/*  */
+.message-blue {
+  display: grid;
+  margin: 15px 70% 10px 18px;
+  position: relative;
+  float: left;
+  padding: 9px;
+  background-color: #ccd5d6;
+  max-width: 50%;
+  word-wrap: break-word;
+  text-align: left;
+  width: fit-content;
+  font: 400 0.9em "Open Sans", sans-serif;
+  border-radius: 10px;
+}
+
+.message-blue:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 15px solid #ccd5d6;
+  border-left: 15px solid transparent;
+  /* border-right: 15px solid transparent; */
+  top: 0px;
+  left: -6px;
+}
+
+.message-orange {
+  display: grid;
+  margin: 15px 15px 10px 69%;
+  position: relative;
+  float: right;
+  padding: 9px;
+  background-color: #ceddff;
+  max-width: 50%;
+  word-wrap: break-word !important;
+  text-align: left;
+  font: 400 0.9em "Open Sans", sans-serif;
+  border-radius: 10px;
+}
+
+.message-orange:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 15px solid #ceddff;
+  /* border-left: 15px solid transparent; */
+  border-right: 15px solid transparent;
+  top: 0px;
+  right: -6px;
+}
+
+#time {
+  text-align: right;
+  font-size: 0.85em;
+}
+
+/* type_msg_container start */
+
+.type_msg_container {
+  /* border: 2px solid green; */
+  width: 100%;
+  height: 76px;
+  position: sticky;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+}
+#msg_input {
+  width: 90%;
+  height: 80%;
+  margin-top: 7px;
+  font-size: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#attachment_icon {
+  font-size: 30px;
+  padding-top: 18px;
+  padding-right: 20px;
+}
+
+#send_icon {
+  margin-left: 20px;
+  margin-top: 9px;
+  font-size: 40px;
+  color: white;
+  background-color: black;
+  padding-top: 2px;
+  padding-left: 5px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: 2px solid black;
+  cursor: pointer;
+}

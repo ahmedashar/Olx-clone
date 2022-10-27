@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat Room</title>
+    <link rel="stylesheet" href="./chatroom.css">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css
+">
+
+    <!-- google icons -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <!-- main-container start -->
+    <div class="main_container">
+
+        <!-- nav start -->
+        <div class="container-fluid nav">
+            <a href="#" id="left_arrow_a">
+                <i id="left_arrow" class="fa-solid fa-arrow-left"></i>
+            </a>
+            <img class="black_olx_logo" src="../images/olx-logo-black.png" alt="">
+        </div>
+        <!-- nav end -->
+
+        <!-- msg_container start -->
+
+        <div class="msg_container" id="ads">
+
+            <!-- <div class="message-orange">
+                <span>kia hal ha mera bhi</span>
+                <div id="time">09:40</div>
+            </div>
+            <div class="message-orange">
+                <span>kia hal ha mera bhi</span>
+                <div id="time">09:40</div>
+            </div>
+            <div class="message-orange">
+                <span>kia hal ha mera bhi</span>
+                <div id="time">09:40</div>
+            </div>
+            <div class="message-blue">
+                <span>2nd messages</span>
+                <div id="time">02:55</div>
+            </div>
+            <div class="message-blue">
+                <span>2nd messages</span>
+                <div id="time">02:55</div>
+            </div> -->
+
+        </div>
+
+        <!-- msg-container end -->
+
+
+        <!-- type_message_container start -->
+        <div class="type_msg_container">
+            <figure id="attachment_icon" class="fa-solid fa-paperclip"></figure>
+            <input id="msg_input" type="text">
+            <figure onclick="sendMsg()" id="send_icon" class="material-symbols-outlined">
+                send
+            </figure>
+        </div>
+
+
+    </div>
+    <!-- main_container end -->
+
+
+    <script src="./chatroom.js" type="module"></script>
+    <script src="../firebase.js" type="module"></script>
+
+
+    <!-- bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -2,7 +2,7 @@
 
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-app.js";
   import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
-  import { getFirestore, setDoc, doc, addDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-firestore.js";
+  import { getFirestore, setDoc, doc, addDoc, collection, getDocs, getDoc, where, query, onSnapshot, orderBy } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-firestore.js";
   import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-storage.js"
 // from ad detail
   import { getAdId } from './ad-detail/app.js'
@@ -138,4 +138,113 @@ async function getAdDetailFromDB(){
   return ads
 }
 
-export { firebaseSignIn, firebaseSignUp, adPostToDb, uploadImage, getAdsFromDb, checkUserSignIn,  signOutUserFirebase, checkUserLoginFirebase, getAdDetailFromDB }
+async function getSellerInfoFromDB(sellerId){
+  const querySnapshot = await getDocs(collection(db,'users'))
+  let sellerInfo;
+  
+  querySnapshot.forEach((doc)=>{
+    if(doc.id == sellerId){
+      sellerInfo = {id: doc.id, ...doc.data()};
+    }
+  })
+  return sellerInfo;
+}
+
+// for chatRooms
+
+
+
+//create chatRoom in dataBase firestore in firebase (call from ad-detail/app.js)
+function createRoom(sellerId) {
+  const currentUserId = auth.currentUser.uid;
+  const newRoomCreateInfo = {
+    users: {
+      [sellerId]: true,
+      [currentUserId]: true,
+    },
+    createdAt: Date.now(),
+    lastMessage: {},
+  };
+  return addDoc(collection(db, "chatrooms"), newRoomCreateInfo);
+}
+
+
+async function checkRoom(sellerId) {
+  const currentUserId = auth.currentUser.uid;
+
+  //get the data to chatrooms colection
+  const q = query(
+      collection(db, "chatrooms"),
+      where(`users.${sellerId}`, "==", true),
+      where(`users.${currentUserId}`, "==", true)
+  );
+  // console.log("querry ===>",q)
+  const snapshot = await getDocs(q);
+  // console.log("snapshot==>",snapshot)
+  let room;
+  //loop to collect the data
+  snapshot.forEach((doc) => {
+      // console.log("data user===>",doc.id,"==",doc.data())
+      room = { id: doc.id, ...doc.data() };
+  });
+  return room;
+  }
+
+
+  // for chatRoom  file: chatroom.js
+  function messages(text, roomId) {
+    const obj = { text, createdAt: Date.now(), userId: auth.currentUser.uid };
+    console.log("obj===>", obj);
+    // ,essageRef = doc(db, "rooms", "roomA", "messages", "message1");
+    console.log("roomId", roomId);
+    const messageRef = addDoc(
+      collection(db, "chatrooms", `${roomId}`, "messages"),
+      obj
+    );
+    console.log("messges REf=======", messageRef);
+  
+    console.log(text);
+    // alert(`messages ----${text}`)
+  }
+
+// get getChatroomData  file: chatroom.js
+async function getChatroomData(chatroomId) {
+  // alert("call the firebase function")
+  const docRef = await doc(db, "chatrooms", `${chatroomId}`);
+  const docSnap = await getDoc(docRef);
+  console.log("firebase id===>", chatroomId);
+  return docSnap.data();
+}
+
+// get realTime msgs   file: chatroom,js
+function getRealtimeMessages(roomId, callback) {
+  //2
+
+  const q = query(
+    collection(db, "chatrooms", `${roomId}`, "messages"),
+    orderBy("createdAt")
+  );
+  onSnapshot(q, (querySnapshot) => {
+    const messages = [];
+    querySnapshot.forEach((doc) => {
+      messages.push({ id: doc.id, ...doc.data() });
+    });
+    console.log(messages);
+    callback(messages);
+  });
+}
+
+// getFirestore,
+// collection,
+// addDoc,
+// setDoc,
+// doc,
+// getDoc,
+// getDocs,
+// query,
+// where,
+// onSnapshot,
+// orderBy,
+
+
+export { firebaseSignIn, firebaseSignUp, adPostToDb, uploadImage, getAdsFromDb, checkUserSignIn,  signOutUserFirebase, checkUserLoginFirebase, getAdDetailFromDB, getSellerInfoFromDB, createRoom, checkRoom, messages, getChatroomData,getRealtimeMessages ,auth }
